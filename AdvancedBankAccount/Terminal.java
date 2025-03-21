@@ -203,7 +203,6 @@ public class Terminal
                 try 
                 {
                     bank.transferFunds(this.currentUser.get(0).getHolderName(), name, valDouble);
-                    System.out.println("Transaction successful.");
                 }
                 catch (IllegalArgumentException f)
                 {
@@ -227,16 +226,14 @@ public class Terminal
             Double choiceWrapDouble = Double.valueOf(next);
             double amount = choiceWrapDouble;
             bank.withdraw(accountNumber, amount);
-            System.out.println("Transaction successful.");
         }
-        catch (NumberFormatException  e)
+        catch (IllegalArgumentException  e)
         {
             try 
             {
                 Double choiceWrapDouble = (double)Integer.valueOf(next);
                 double amount = choiceWrapDouble;
                 bank.withdraw(accountNumber, amount);
-                System.out.println("Transaction successful.");
             }
             catch (NumberFormatException  f)
             {
@@ -254,7 +251,6 @@ public class Terminal
             Double choiceWrapDouble = Double.valueOf(next);
             double amount = choiceWrapDouble;
             bank.deposit(accountNumber, amount);
-            System.out.println("Transaction successful.");
         }
         catch (NumberFormatException  e)
         {
@@ -263,7 +259,6 @@ public class Terminal
                 Double choiceWrapDouble = (double)Integer.valueOf(next);
                 double amount = choiceWrapDouble;
                 bank.deposit(accountNumber, amount);
-                System.out.println("Transaction successful.");
             }
             catch (NumberFormatException  f)
             {

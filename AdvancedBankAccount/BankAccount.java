@@ -8,7 +8,9 @@ public abstract class BankAccount {
     private boolean authenticated;
 
 public abstract void deposit(double val);
+public abstract void deposit(double val, boolean dummy);
 public abstract void withdraw(double val);
+public abstract void withdraw(double val, boolean dummy);
 
 public boolean isAuthenticated()
 {

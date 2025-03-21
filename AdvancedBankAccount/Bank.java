@@ -136,17 +136,19 @@ public class Bank implements TransactionLogger{
     public void transferFunds(String s, String r, double amount)
     {
         ArrayList<BankAccount> dummy = new ArrayList<BankAccount>();
+        dummy.add(new SavingsAccount());
+        dummy.add(new SavingsAccount());
         for (BankAccount a : accounts)
         {
             if (a.getAccountNumber().equals(s) || a.getAccountNumber().equals(r))
             {
                 if (a.getAccountNumber().equals(s))
                 {
-                    dummy.add(0, a);
+                    dummy.set(0, a);
                 }
-                else
+                else if(a.getAccountNumber().equals(r))
                 {
-                    dummy.add(1, a);
+                    dummy.set(1, a);
                 }
                 if (dummy.get(0).getAccountNumber().equals(s) && dummy.get(1).getAccountNumber().equals(r))
                 {
@@ -160,7 +162,7 @@ public class Bank implements TransactionLogger{
         }
         try
         {
-            dummy.get(0).withdraw(amount);
+            dummy.get(0).withdraw(amount, true);
         }
         catch (IllegalArgumentException e)
         {

@@ -3,22 +3,32 @@ public class SavingsAccount extends BankAccount{
     @Override
     public void deposit(double val)
     {
-        if (this.loginStatus())
-        {
-            this.setBalance(this.getBalance() + val);
-        }
+        this.setBalance(this.getBalance() + val);
+        System.out.println("Transaction successful.");
+    }
+    @Override
+    public void deposit(double val, boolean dummy)
+    {
+        this.setBalance(this.getBalance() + val);
     }
     @Override
     public void withdraw(double val)
     {
-        if (this.loginStatus())
+        if (this.getBalance() - val < minSavingsBal)
         {
-            if (this.getBalance() - val < minSavingsBal)
-            {
-                throw new IllegalArgumentException("Insufficient funds.");
-            }
-            this.deposit(-val);
+            throw new IllegalArgumentException("Insufficient funds.");
         }
+        this.deposit(-val);
+        System.out.println("Transaction successful.");
+    }
+    @Override
+    public void withdraw(double val, boolean dummy)
+    {
+        if (this.getBalance() - val < minSavingsBal)
+        {
+            throw new IllegalArgumentException("Insufficient funds.");
+        }
+        this.deposit(-val);
     }
     public void getAccountInfo()
     {
@@ -34,5 +44,11 @@ public class SavingsAccount extends BankAccount{
         this.setUsername(holderName.replace(" ", "") + "" + accountNumber);
         this.setPassword(password);
         this.setAuthentication(false);
+    }
+    //Dummy usage savings account
+    public SavingsAccount()
+    {
+        this.setAccountNumber("-1");
+        this.setBalance(-1.0);
     }
 }
