@@ -5,6 +5,14 @@ public class Bank implements TransactionLogger{
     private double overdraftLimit;
     private double minSavingsBal;
 
+    public void setOverdraftLimit(double overdraftLimit)
+    {
+        this.overdraftLimit = overdraftLimit;
+    }
+    public void setMinSavingsBal(double minSavingsBal)
+    {
+        this.minSavingsBal = minSavingsBal;
+    }
     public double getMinSavingsBal()
     {
         return this.minSavingsBal;
@@ -49,7 +57,7 @@ public class Bank implements TransactionLogger{
         }
         else if (accountType.equals("Savings"))
         {
-            if (balance <= minSavingsBal)
+            if (balance < minSavingsBal)
             {
                 throw new IllegalArgumentException("Amount entered does not exceed minimum balance of " + minSavingsBal + " to register a savings account.");
             }
@@ -140,7 +148,7 @@ public class Bank implements TransactionLogger{
                 {
                     dummy.add(1, a);
                 }
-                if (dummy.get(0).equals(s) && dummy.get(1).equals(r))
+                if (dummy.get(0).getAccountNumber().equals(s) && dummy.get(1).getAccountNumber().equals(r))
                 {
                     break;
                 }
@@ -192,7 +200,7 @@ public class Bank implements TransactionLogger{
     {
         for (BankAccount a : accounts)
         {
-            a.displayAccountInfo();
+            a.getAccountInfo();
         }
     }
 }

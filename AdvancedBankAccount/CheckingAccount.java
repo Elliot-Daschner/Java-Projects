@@ -20,6 +20,10 @@ public class CheckingAccount extends BankAccount {
             this.deposit(-val);
         }
     }
+    public void getAccountInfo()
+    {
+        System.out.println("User " + getHolderName() + " Account Num " + getAccountNumber() + " Balance $" + getBalance());
+    }
     public CheckingAccount(String accountNumber, String holderName, double balance, String accountType, double overdraftLimit, String password)
     {
         this.setAccountNumber(accountNumber);

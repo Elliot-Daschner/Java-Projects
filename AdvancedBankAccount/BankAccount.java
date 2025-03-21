@@ -87,6 +87,10 @@ public boolean loginStatus()
         throw new IllegalArgumentException("User not authenticated.");
     }
 }
+public void getAccountInfo()
+    {
+        System.out.println("User " + getHolderName() + " Account Num " + getAccountNumber() + " Balance $" + getBalance());
+    }
 
 public String toString() {
     return "Account Number: " + this.accountNumber + " | Holder Name: " + this.holderName + " | Balance: $" + this.balance + "Account Type: " + this.accountType;  

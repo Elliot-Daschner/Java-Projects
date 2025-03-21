@@ -20,6 +20,10 @@ public class SavingsAccount extends BankAccount{
             this.deposit(-val);
         }
     }
+    public void getAccountInfo()
+    {
+        System.out.println("User " + getHolderName() + " Account Num " + getAccountNumber() + " Balance $" + getBalance());
+    }
     public SavingsAccount(String accountNumber, String holderName, double balance, String accountType, double minSavingsBal, String password)
     {
         this.setAccountNumber(accountNumber);
