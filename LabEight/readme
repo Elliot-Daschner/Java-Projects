@@ -1,0 +1,21 @@
+Class Stock manages construction of Stock objects.
+
+Class StockExchange manages constructions of StockExchanges objects that
+contain a an ArrayList<Stock> of unique entries.
+
+Class User manages construction of User objects that contain a mapping
+between a Stock object and a double representing the volume of the Stock
+owned by the user.
+
+Class UserManager manages the construction  of a userbase responsible 
+for the maintenance and creation of User objects .
+
+Class Transaction manages construction of Transaction objects.
+
+Class TransactionManager manages construction of TransactionManager
+objects which manage transaction event dispatch.
+
+Class ThreadDispatch imports ThreadPoolExecutorW and statically manages 
+the dispatch of threads. It should have methods that take a Runnable from
+a method on a TransactionManager object and synchronously dispatch the
+threads.
